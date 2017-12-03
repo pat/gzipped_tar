@@ -10,7 +10,24 @@ gem "gzipped_tar", "~> 0.0.1"
 
 ## Usage
 
-TODO: Write usage instructions here
+This library lets you work with gzipped tar files directly. If you're reading, you don't need to extract all the files into the file system, and if you're writing, you can add content in without needing it to be persisted to the file system either.
+
+```ruby
+# Add a path and its content to a gzipped tar archive
+writer = GZippedTar::Writer.new
+writer.add "file.txt", "hello world"
+
+# Write that archive to disk:
+File.write "archive.tar.gz", writer.output
+
+# Read in an existing archive:
+reader = GZippedTar::Reader.new File.read("archive.tar.gz")
+# Or straight from a writer:
+reader = GZippedTar::Reader.new writer.output
+
+# And then get the contents of a path in that file:
+reader.read "file.txt" #=> "hello world"
+```
 
 ## Contributing
 
