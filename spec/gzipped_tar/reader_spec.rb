@@ -1,17 +1,10 @@
 # frozen_string_literal: true
 
 require "gzipped_tar/reader"
-require "tmpdir"
 
 RSpec.describe GZippedTar::Reader do
   let(:subject)      { GZippedTar::Reader.new File.read(archive_path) }
   let(:archive_path) { "archive.tar.gz" }
-
-  around :example do |example|
-    Dir.mktmpdir do |directory|
-      Dir.chdir(directory) { example.run }
-    end
-  end
 
   before :example do
     File.write "file.txt", "hello world"

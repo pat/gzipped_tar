@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "tmpdir"
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4.
@@ -19,4 +21,10 @@ RSpec.configure do |config|
 
   config.order = :random
   Kernel.srand config.seed
+
+  config.around :example do |example|
+    Dir.mktmpdir do |directory|
+      Dir.chdir(directory) { example.run }
+    end
+  end
 end
