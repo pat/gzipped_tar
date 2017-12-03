@@ -16,4 +16,6 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |file| File.basename(file) }
   spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "rspec", "~> 3.7"
 end
