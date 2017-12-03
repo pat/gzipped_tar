@@ -22,7 +22,7 @@ module GZippedTar
     private
 
     def binary_io
-      io = StringIO.new(+"", "r+b")
+      io = StringIO.new "".dup, "r+b"
       io.set_encoding "BINARY"
       io
     end
