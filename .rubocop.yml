@@ -2,7 +2,7 @@ inherit_from:
   - https://gist.githubusercontent.com/pat/ba3b8ffb1901bfe5439b460943b6b019/raw/.rubocop.yml
 
 AllCops:
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.1
 
 Style/Documentation:
   Enabled: false
@@ -11,4 +11,7 @@ Style/RedundantFreeze:
   Enabled: false
 
 Style/SafeNavigation:
+  Enabled: false
+
+Style/SymbolArray:
   Enabled: false
