@@ -10,8 +10,9 @@ module GZippedTar
     end
 
     def read(path)
-      result = reader.detect { |entry| entry.full_name == path }
-      result && result.read
+      result = nil
+      reader.each { |entry| result = entry.read if entry.full_name == path }
+      result
     ensure
       reader.rewind
     end
