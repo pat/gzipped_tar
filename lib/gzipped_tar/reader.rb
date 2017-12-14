@@ -13,8 +13,6 @@ module GZippedTar
       result = nil
       reader.each { |entry| result = entry.read if entry.full_name == path }
       result
-    ensure
-      reader.rewind
     end
 
     private
@@ -22,7 +20,7 @@ module GZippedTar
     attr_reader :raw
 
     def reader
-      @reader ||= Gem::Package::TarReader.new unzipped
+      Gem::Package::TarReader.new unzipped
     end
 
     def unzipped
