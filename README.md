@@ -5,7 +5,7 @@ A simple interface for reading and writing gzipped tar files (.tar.gz) in memory
 ## Installation
 
 ```ruby
-gem "gzipped_tar", "~> 0.1.0"
+gem "gzipped_tar", "~> 0.1.1"
 ```
 
 ## Usage
