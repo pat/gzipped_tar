@@ -91,7 +91,7 @@ class GZippedTar::Tar::Header
   def initialize(values)
     validate values
 
-    @empty  = values.delete :empty
+    @empty  = values[:empty]
     @values = FIELDS.inject({}) do |hash, field|
       hash[field.name] = field.translate values[field.name]
       hash
