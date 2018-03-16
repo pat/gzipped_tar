@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "gzipped_tar/tar"
 require "gzipped_tar/writer"
 
 RSpec.describe GZippedTar::Writer do

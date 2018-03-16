@@ -32,7 +32,7 @@ module GZippedTar
     end
 
     def writer
-      @writer ||= Gem::Package::TarWriter.new input_io
+      @writer ||= GZippedTar::Tar::Writer.new input_io
     end
   end
 end

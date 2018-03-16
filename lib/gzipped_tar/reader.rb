@@ -20,7 +20,7 @@ module GZippedTar
     attr_reader :raw
 
     def reader
-      Gem::Package::TarReader.new unzipped
+      GZippedTar::Tar::Reader.new unzipped
     end
 
     def unzipped
