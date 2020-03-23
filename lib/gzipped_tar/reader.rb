@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "stringio"
+require "zlib"
 
 module GZippedTar
   class Reader
