@@ -26,7 +26,7 @@ class GZippedTar::Tar::BoundedStream
   def write(data)
     if data.bytesize + @written > @limit
       raise GZippedTar::Tar::FileOverflow,
-        "You tried to feed more data than fits in the file."
+            "You tried to feed more data than fits in the file."
     end
     @io.write data
     @written += data.bytesize

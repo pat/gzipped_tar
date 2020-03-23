@@ -51,8 +51,8 @@ class GZippedTar::Tar::SplitName
     return if string.bytesize <= maximum
 
     raise GZippedTar::Tar::TooLongFileName,
-      "File \"#{string}\" has a too long #{description} (should be " \
-      "#{maximum} or less)"
+          "File \"#{string}\" has a too long #{description} (should be " \
+          "#{maximum} or less)"
   end
 
   # If the file is less than MAXIMUM_NAME_LENGTH, it doesn't need to be split,

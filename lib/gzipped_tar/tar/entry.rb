@@ -55,7 +55,7 @@ class GZippedTar::Tar::Entry
   rescue ArgumentError => e
     raise unless e.message == "string contains null byte"
     raise GZippedTar::Tar::TarInvalidError,
-      "tar is corrupt, name contains null byte"
+          "tar is corrupt, name contains null byte"
   end
 
   # Read one byte from the tar entry
