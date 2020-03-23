@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "stringio"
-require "rubygems/package"
 
 module GZippedTar
   class Reader
