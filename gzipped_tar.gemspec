@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "gzipped_tar"
-  spec.version       = "0.1.2"
+  spec.version       = "0.2.0"
   spec.authors       = ["Pat Allan"]
   spec.email         = ["pat@freelancing-gods.com"]
 
@@ -14,9 +14,12 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] =
+    "#{spec.homepage}/src/branch/main/CHANGELOG.md"
   spec.metadata["rubygems_mfa_required"] = "true"
 
-  spec.files = Dir["lib/**/*"] + %w[CODE_OF_CONDUCT.md LICENSE.txt README.md]
+  spec.files = Dir["lib/**/*"] +
+               %w[CHANGELOG.md CODE_OF_CONDUCT.md LICENSE.txt README.md]
 
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
