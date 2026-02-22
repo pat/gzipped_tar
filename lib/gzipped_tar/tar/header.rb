@@ -57,8 +57,8 @@ class GZippedTar::Tar::Header
   ].freeze
   # rubocop:enable Layout/ExtraSpacing
 
-  PACK_FORMAT    = FIELDS.collect(&:pack).join("")
-  UNPACK_FORMAT  = FIELDS.collect(&:unpack).join("")
+  PACK_FORMAT    = FIELDS.collect(&:pack).join
+  UNPACK_FORMAT  = FIELDS.collect(&:unpack).join
   HEADER_LENGTH  = 512
   BLANK          = {
     :name   => "",
@@ -133,7 +133,7 @@ class GZippedTar::Tar::Header
   private
 
   def calculate_checksum(header)
-    header.unpack("C*").inject { |a, b| a + b }
+    header.unpack("C*").sum
   end
 
   def build_header

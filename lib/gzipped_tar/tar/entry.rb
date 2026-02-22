@@ -47,10 +47,10 @@ class GZippedTar::Tar::Entry
 
   # Full name of the tar entry
   def full_name
-    if @header.prefix != ""
-      File.join @header.prefix, @header.name
-    else
+    if @header.prefix == ""
       @header.name
+    else
+      File.join @header.prefix, @header.name
     end
   rescue ArgumentError => error
     raise unless error.message == "string contains null byte"

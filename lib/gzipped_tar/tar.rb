@@ -5,13 +5,23 @@ module GZippedTar
     ROW_WIDTH = 512
     EMPTY_ROW = "\0" * ROW_WIDTH
 
-    Error = Class.new StandardError
+    class Error < StandardError
+    end
 
-    FileOverflow    = Class.new Error
-    NonSeekableIO   = Class.new Error
-    TarInvalidError = Class.new Error
-    TooLongFileName = Class.new Error
-    UnexpectedEOF   = Class.new Error
+    class FileOverflow < Error
+    end
+
+    class NonSeekableIO < Error
+    end
+
+    class TarInvalidError < Error
+    end
+
+    class TooLongFileName < Error
+    end
+
+    class UnexpectedEOF < Error
+    end
   end
 end
 
