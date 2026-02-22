@@ -7,16 +7,18 @@ Gem::Specification.new do |spec|
   spec.email         = ["pat@freelancing-gods.com"]
 
   spec.summary       = "In-memory reading/writing of .tar.gz files"
-  spec.homepage      = "https://github.com/pat/gzipped_tar"
+  spec.homepage      = "https://codeberg.org/patallan/gzipped_tar"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |file|
-    file.match(%r{^(test|spec|features)/})
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |file| File.basename(file) }
-  spec.require_paths = ["lib"]
+  spec.required_ruby_version = ">= 2.7"
 
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", "~> 3.7"
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["rubygems_mfa_required"] = "true"
+
+  spec.files = Dir["lib/**/*"] + %w[CODE_OF_CONDUCT.md LICENSE.txt README.md]
+
+  spec.bindir = "exe"
+  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 end

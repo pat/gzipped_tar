@@ -36,7 +36,7 @@ class GZippedTar::Tar::SplitName
   end
 
   def name
-    parts[(last_prefix_index + 1)..-1].join("/")
+    parts[(last_prefix_index + 1)..].join("/")
   end
 
   def parts

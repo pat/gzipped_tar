@@ -52,8 +52,9 @@ class GZippedTar::Tar::Entry
     else
       @header.name
     end
-  rescue ArgumentError => e
-    raise unless e.message == "string contains null byte"
+  rescue ArgumentError => error
+    raise unless error.message == "string contains null byte"
+
     raise GZippedTar::Tar::TarInvalidError,
       "tar is corrupt, name contains null byte"
   end

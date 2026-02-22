@@ -44,6 +44,7 @@ class GZippedTar::Tar::Reader
     until @io.eof?
       header = GZippedTar::Tar::Header.from @io
       return if header.empty?
+
       entry = GZippedTar::Tar::Entry.new header, @io
 
       yield entry
@@ -62,9 +63,11 @@ class GZippedTar::Tar::Reader
   def rewind
     if @init_pos.zero?
       raise GZippedTar::Tar::NonSeekableIO unless @io.respond_to? :rewind
+
       @io.rewind
     else
       raise GZippedTar::Tar::NonSeekableIO unless @io.respond_to? :pos=
+
       @io.pos = @init_pos
     end
   end
@@ -79,7 +82,7 @@ class GZippedTar::Tar::Reader
 
     return unless found
 
-    return yield found
+    yield found
   ensure
     rewind
   end
@@ -98,7 +101,7 @@ class GZippedTar::Tar::Reader
   end
 
   def skip_by_read(pending)
-    while pending > 0
+    while pending.positive?
       bytes_read = io.read([pending, 4096].min).size
       pending -= bytes_read
       raise GZippedTar::Tar::UnexpectedEOF if io.eof? && !pending.zero?

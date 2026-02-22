@@ -3,7 +3,6 @@
 require "digest"
 
 module GZippedTar
-  #
 end
 
 require "gzipped_tar/tar"
